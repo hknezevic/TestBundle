@@ -1,0 +1,17 @@
+<form method="post" action="{{ path( 'netgen_test_user_edit', { 'userID' : userID } )  }}">
+    <div>
+        <span>First name:</span>
+        <input type="text" name="firstName" value="{{ firstName }}" />
+    </div>
+    <div>
+        <span>Last name:</span>
+        <input type="text" name="lastName" value="{{ lastName }}" />
+    </div>
+    <div>
+        <span>Email:</span>
+        <input type="text" name="email" value="{{ email }}" />
+    </div>
+    <div>
+        <button type="submit" name="Submit">Submit</button>
+    </div>
+</form>
