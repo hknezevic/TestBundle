@@ -1,6 +1,6 @@
 <?php
 
-namespace Netgen\Bundle\TestBundle\DependencyInjection;
+namespace Netgen\TestBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

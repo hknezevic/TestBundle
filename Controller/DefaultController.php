@@ -1,6 +1,6 @@
 <?php
 
-namespace Netgen\Bundle\TestBundle\Controller;
+namespace Netgen\TestBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 

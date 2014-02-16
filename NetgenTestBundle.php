@@ -1,6 +1,6 @@
 <?php
 
-namespace Netgen\Bundle\TestBundle;
+namespace Netgen\TestBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

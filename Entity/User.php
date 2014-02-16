@@ -1,12 +1,12 @@
 <?php
 
-namespace Netgen\Bundle\TestBundle\Entity;
+namespace Netgen\TestBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Serializable;
 
-use Netgen\Bundle\TestBundle\Entity\Role;
+use Netgen\TestBundle\Entity\Role;
 
 /**
  * User
@@ -59,7 +59,7 @@ class User implements AdvancedUserInterface, Serializable
     private $isEnabled;
 
     /**
-     * @var \Netgen\Bundle\TestBundle\Entity\Role[]
+     * @var \Netgen\TestBundle\Entity\Role[]
      */
     private $userRoles;
 
@@ -87,7 +87,7 @@ class User implements AdvancedUserInterface, Serializable
      * Set username
      *
      * @param string $username
-     * @return \Netgen\Bundle\TestBundle\Entity\User
+     * @return \Netgen\TestBundle\Entity\User
      */
     public function setUsername($username)
     {
@@ -110,7 +110,7 @@ class User implements AdvancedUserInterface, Serializable
      * Set firstName
      *
      * @param string $firstName
-     * @return \Netgen\Bundle\TestBundle\Entity\User
+     * @return \Netgen\TestBundle\Entity\User
      */
     public function setFirstName($firstName)
     {
@@ -133,7 +133,7 @@ class User implements AdvancedUserInterface, Serializable
      * Set lastName
      *
      * @param string $lastName
-     * @return \Netgen\Bundle\TestBundle\Entity\User
+     * @return \Netgen\TestBundle\Entity\User
      */
     public function setLastName($lastName)
     {
@@ -156,7 +156,7 @@ class User implements AdvancedUserInterface, Serializable
      * Set emailAddress
      *
      * @param string $emailAddress
-     * @return \Netgen\Bundle\TestBundle\Entity\User
+     * @return \Netgen\TestBundle\Entity\User
      */
     public function setEmailAddress($emailAddress)
     {
@@ -179,7 +179,7 @@ class User implements AdvancedUserInterface, Serializable
      * Set salt
      *
      * @param string $salt
-     * @return \Netgen\Bundle\TestBundle\Entity\User
+     * @return \Netgen\TestBundle\Entity\User
      */
     public function setSalt($salt)
     {
@@ -204,7 +204,7 @@ class User implements AdvancedUserInterface, Serializable
      * Set password
      *
      * @param string $password
-     * @return \Netgen\Bundle\TestBundle\Entity\User
+     * @return \Netgen\TestBundle\Entity\User
      */
     public function setPassword($password)
     {
@@ -260,7 +260,7 @@ class User implements AdvancedUserInterface, Serializable
      * Set isEnabled
      *
      * @param boolean $isEnabled
-     * @return \Netgen\Bundle\TestBundle\Entity\User
+     * @return \Netgen\TestBundle\Entity\User
      */
     public function setIsEnabled($isEnabled)
     {
@@ -282,8 +282,8 @@ class User implements AdvancedUserInterface, Serializable
     /**
      * Add userRole
      *
-     * @param \Netgen\Bundle\TestBundle\Entity\Role $userRole
-     * @return \Netgen\Bundle\TestBundle\Entity\User
+     * @param \Netgen\TestBundle\Entity\Role $userRole
+     * @return \Netgen\TestBundle\Entity\User
      */
     public function addUserRole(Role $userRole)
     {
@@ -295,7 +295,7 @@ class User implements AdvancedUserInterface, Serializable
     /**
      * Remove userRole
      *
-     * @param \Netgen\Bundle\TestBundle\Entity\Role $userRole
+     * @param \Netgen\TestBundle\Entity\Role $userRole
      */
     public function removeUserRole(Role $userRole)
     {
@@ -305,7 +305,7 @@ class User implements AdvancedUserInterface, Serializable
     /**
      * Get userRoles
      *
-     * @return \Netgen\Bundle\TestBundle\Entity\Role[]
+     * @return \Netgen\TestBundle\Entity\Role[]
      */
     public function getUserRoles()
     {

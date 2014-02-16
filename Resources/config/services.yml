@@ -1,5 +1,5 @@
 parameters:
-#    netgen_test.example.class: Netgen\Bundle\TestBundle\Example
+#    netgen_test.example.class: Netgen\TestBundle\Example
 
 services:
 #    netgen_test.example:

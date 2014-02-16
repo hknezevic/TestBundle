@@ -1,6 +1,6 @@
 <?php
 
-namespace Netgen\Bundle\TestBundle\Entity;
+namespace Netgen\TestBundle\Entity;
 
 use Symfony\Component\Security\Core\Role\RoleInterface;
 
@@ -38,7 +38,7 @@ class Role implements RoleInterface
      * Set roleName
      *
      * @param string $roleName
-     * @return \Netgen\Bundle\TestBundle\Entity\Role
+     * @return \Netgen\TestBundle\Entity\Role
      */
     public function setRoleName($roleName)
     {
@@ -61,7 +61,7 @@ class Role implements RoleInterface
      * Set roleIdentifier
      *
      * @param string $roleIdentifier
-     * @return \Netgen\Bundle\TestBundle\Entity\Role
+     * @return \Netgen\TestBundle\Entity\Role
      */
     public function setRoleIdentifier($roleIdentifier)
     {

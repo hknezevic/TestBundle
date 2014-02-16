@@ -1,10 +1,10 @@
 <?php
 
-namespace Netgen\Bundle\TestBundle\EventListeners;
+namespace Netgen\TestBundle\EventListeners;
 
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Event\LifecycleEventArgs;
-use Netgen\Bundle\TestBundle\Entity\User as UserEntity;
+use Netgen\TestBundle\Entity\User as UserEntity;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 
 class User
@@ -27,7 +27,7 @@ class User
     /**
      * Returns the encoder
      *
-     * @param \Netgen\Bundle\TestBundle\Entity\User $user
+     * @param \Netgen\TestBundle\Entity\User $user
      *
      * @return \Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface
      */
@@ -39,7 +39,7 @@ class User
     /**
      * Updates and hashes the user password
      *
-     * @param \Netgen\Bundle\TestBundle\Entity\User $user
+     * @param \Netgen\TestBundle\Entity\User $user
      */
     private function encodePassword( UserEntity $user )
     {

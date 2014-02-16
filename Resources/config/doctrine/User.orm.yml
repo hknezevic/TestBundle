@@ -1,4 +1,4 @@
-Netgen\Bundle\TestBundle\Entity\User:
+Netgen\TestBundle\Entity\User:
     type: entity
     table: user
     id:
@@ -34,7 +34,7 @@ Netgen\Bundle\TestBundle\Entity\User:
             column: is_enabled
     manyToMany:
         userRoles:
-            targetEntity: Netgen\Bundle\TestBundle\Entity\Role
+            targetEntity: Netgen\TestBundle\Entity\Role
             joinTable:
                 name: user_role
                 joinColumns:

@@ -1,6 +1,6 @@
 <?php
 
-namespace Netgen\Bundle\TestBundle\DependencyInjection;
+namespace Netgen\TestBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

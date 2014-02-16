@@ -1,4 +1,4 @@
-Netgen\Bundle\TestBundle\Entity\Role:
+Netgen\TestBundle\Entity\Role:
     type: entity
     table: role
     id:
