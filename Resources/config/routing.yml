@@ -1,3 +1,27 @@
 netgen_test_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: NetgenTestBundle:Default:index }
+
+netgen_test_user_list:
+    pattern:  /user/list
+    defaults: { _controller: NetgenTestBundle:User:list }
+
+netgen_test_user_show:
+    pattern:  /user/show/{userID}
+    defaults: { _controller: NetgenTestBundle:User:show }
+
+netgen_test_user_add:
+    pattern:  /user/add
+    defaults: { _controller: NetgenTestBundle:User:add }
+
+netgen_test_user_edit:
+    pattern:  /user/edit/{userID}
+    defaults: { _controller: NetgenTestBundle:User:edit }
+
+netgen_test_user_disable:
+    pattern:  /user/disable/{userID}
+    defaults: { _controller: NetgenTestBundle:User:disable }
+
+netgen_test_user_remove:
+    pattern:  /user/remove/{userID}
+    defaults: { _controller: NetgenTestBundle:User:remove }
