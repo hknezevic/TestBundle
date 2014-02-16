@@ -1,0 +1,45 @@
+Netgen\Bundle\TestBundle\Entity\User:
+    type: entity
+    table: user
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        username:
+            type: string
+            length: 64
+            unique: true
+        firstName:
+            type: string
+            length: 128
+            column: first_name
+        lastName:
+            type: string
+            length: 128
+            column: last_name
+        emailAddress:
+            type: string
+            length: 128
+            unique: true
+            column: email_address
+        salt:
+            type: string
+            length: 255
+        password:
+            type: string
+            length: 255
+        isEnabled:
+            type: boolean
+            column: is_enabled
+    manyToMany:
+        userRoles:
+            targetEntity: Netgen\Bundle\TestBundle\Entity\Role
+            joinTable:
+                name: user_role
+                joinColumns:
+                    user_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    role_id:
+                        referencedColumnName: id

@@ -1,0 +1,17 @@
+Netgen\Bundle\TestBundle\Entity\Role:
+    type: entity
+    table: role
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        roleName:
+            type: string
+            length: 128
+            column: role_name
+        roleIdentifier:
+            type: string
+            length: 128
+            column: role_identifier
+            unique: true
