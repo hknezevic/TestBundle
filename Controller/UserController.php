@@ -33,7 +33,7 @@ class UserController extends Controller
         return new JsonResponse( $data );
 	}
 
-    public function showAction( $userID )
+    public function userAction( $userID )
     {
         $repository = $this->getDoctrine()->getRepository('NetgenTestBundle:User');
 

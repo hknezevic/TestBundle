@@ -6,9 +6,11 @@ netgen_test_user_list:
     pattern:  /user/list
     defaults: { _controller: NetgenTestBundle:User:list }
 
-netgen_test_user_show:
-    pattern:  /user/show/{userID}
-    defaults: { _controller: NetgenTestBundle:User:show }
+netgen_test_user:
+    pattern:  /user/{userID}
+    defaults: { _controller: NetgenTestBundle:User:user }
+    requirements:
+        userID: \d+
 
 netgen_test_user_add:
     pattern:  /user/add
@@ -17,11 +19,17 @@ netgen_test_user_add:
 netgen_test_user_edit:
     pattern:  /user/edit/{userID}
     defaults: { _controller: NetgenTestBundle:User:edit }
+    requirements:
+        userID: \d+
 
 netgen_test_user_disable:
     pattern:  /user/disable/{userID}
     defaults: { _controller: NetgenTestBundle:User:disable }
+    requirements:
+        userID: \d+
 
 netgen_test_user_remove:
     pattern:  /user/remove/{userID}
     defaults: { _controller: NetgenTestBundle:User:remove }
+    requirements:
+        userID: \d+
