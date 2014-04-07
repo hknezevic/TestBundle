@@ -86,7 +86,7 @@ class UserController extends Controller
 
             return $this->redirect(
                 $this->generateUrl(
-                    "netgen_test_user_show",
+                    "netgen_test_user",
                     array( "userID" => $user->getId() )
                 )
             );
@@ -128,7 +128,7 @@ class UserController extends Controller
 
             return $this->redirect(
                 $this->generateUrl(
-                    "netgen_test_user_show",
+                    "netgen_test_user",
                     array( "userID" => $user->getId() )
                 )
             );
