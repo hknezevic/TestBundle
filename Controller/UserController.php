@@ -54,10 +54,9 @@ class UserController extends Controller
 
     public function addAction()
     {
-        $user = new User();
-
         if ( $this->getRequest()->isMethod( 'POST' ) )
         {
+	    $user = new User();
             $userName = $this->getRequest()->request->get( 'username', false );
 
             if ( !$userName || strlen( $userName ) <= 0 )
