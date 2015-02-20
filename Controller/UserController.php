@@ -25,12 +25,19 @@ class UserController extends Controller
                 $data[] = array(
                     'id' => $user->getId(),
                     'firstName' => $user->getFirstName(),
-                    'lastName' => $user->getLastName()
+                    'lastName' => $user->getLastName(),
+                    'username' => $user->getUsername(),
+                    'enabled' => $user->getIsEnabled()
                 );
             }
         }
 
-        return new JsonResponse( $data );
+        return new Response( 
+            $this->renderView(
+                'NetgenTestBundle:User:list.html.twig',
+                array( 'users' => $data)
+            ) 
+        );
 	}
 
     public function userAction( $userID )
@@ -44,12 +51,14 @@ class UserController extends Controller
             throw new NotFoundHttpException( "User not found" );
         }
 
-        return new JsonResponse( array( 'ID' => $user->getId(),
-                                        'username' => $user->getUsername(),
-                                        'firstName' => $user->getFirstName(),
-                                        'lastName' => $user->getLastName(),
-                                        'email' => $user->getEmailAddress(),
-                                        'enabled' => $user->getIsEnabled() ) );
+        return new Response( $this->renderView(
+            'NetgenTestBundle:User:view.html.twig',
+            array( 'userID' => $user->getId(),
+                   'firstName' => $user->getFirstName(),
+                   'lastName' => $user->getLastName(),
+                   'email' => $user->getEmailAddress(),
+                   'username' => $user->getUsername(),
+                   'enabled' => $user->getIsEnabled() ) ) );
     }
 
     public function addAction()
@@ -120,6 +129,15 @@ class UserController extends Controller
             $user->setFirstName( $this->getRequest()->request->get( 'firstName', '' ) );
             $user->setLastName( $this->getRequest()->request->get( 'lastName', '' ) );
 
+            if( !$this->getRequest()->request->get( 'enabled' ) )
+            {
+                $user->setIsEnabled(false);
+            }
+            else
+            {
+                $user->setIsEnabled(true);
+            }
+
             /** @var \Doctrine\ORM\EntityManager $em */
             $em = $this->getDoctrine()->getManager();
 
@@ -139,7 +157,9 @@ class UserController extends Controller
             array( 'userID' => $user->getId(),
                    'firstName' => $user->getFirstName(),
                    'lastName' => $user->getLastName(),
-                   'email' => $user->getEmailAddress() ) ) );
+                   'email' => $user->getEmailAddress(),
+                   'username' => $user->getUsername(),
+                   'enabled' => $user->getIsEnabled() ) ) );
     }
 
     public function disableAction( $userID )
@@ -155,7 +175,7 @@ class UserController extends Controller
 
         if ($user->getIsEnabled() == false)
         {
-            return new Response( "User already disabled." );
+            throw new Exception( "User already disabled." );
         }
 
         $user->setIsEnabled(false);
@@ -164,7 +184,40 @@ class UserController extends Controller
         $em->persist($user);
         $em->flush();
 
-        return new Response( "User disabled successfully." );
+        return $this->redirect(
+                $this->generateUrl(
+                    "netgen_test_user_list"
+                )
+            );
+    }
+
+    public function enableAction( $userID )
+    {
+        $repository = $this->getDoctrine()->getRepository('NetgenTestBundle:User');
+
+        $user = $repository->find( $userID );
+
+        if (!( $user instanceof User ) )
+        {
+        throw new NotFoundHttpException( "User not found." );
+        }
+
+        if ($user->getIsEnabled() == true)
+        {
+            throw new Exception( "User already enabled." );
+        }
+
+        $user->setIsEnabled(true);
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->persist($user);
+        $em->flush();
+
+        return $this->redirect(
+                $this->generateUrl(
+                    "netgen_test_user_list"
+                )
+            );
     }
 
     public function removeAction( $userID )
@@ -182,6 +235,10 @@ class UserController extends Controller
         $em->remove($user);
         $em->flush();
 
-        return new Response( "User removed successfully." );
+        return $this->redirect(
+                $this->generateUrl(
+                    "netgen_test_user_list"
+                )
+            );
     }
 }
