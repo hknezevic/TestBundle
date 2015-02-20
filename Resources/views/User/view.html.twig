@@ -1,0 +1,23 @@
+{% extends 'NetgenTestBundle::page.html.twig' %}
+
+{% block title %}
+    <title>View user - Netgen Test Bundle</title>
+{% endblock %}
+
+{% block body %}
+	<div class="user-list">
+		<h1>User info: <strong>{{ firstName }} {{ lastName }}</strong> (ID = {{ userID }})</h1>
+		<hr/>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row"><strong>Username:</strong> {{ username }}</div>
+               	<div class="row"><strong>Email:</strong> {{ email }}</div>
+               	<div class="row"><strong>Account enabled:</strong> {{ enabled }}</div>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+			<a class="btn btn-info" href="{{ path( 'netgen_test_user_edit', { 'userID' : userID } )  }}">Edit user</a>
+		</div>
+	</div>
+{% endblock %}
