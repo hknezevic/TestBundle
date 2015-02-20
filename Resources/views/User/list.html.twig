@@ -1,0 +1,56 @@
+{% extends 'NetgenTestBundle::page.html.twig' %}
+
+{% block title %}
+    <title>List users - Netgen Test Bundle</title>
+{% endblock %}
+
+{% block body %}
+	<div class="user-list">
+		<h1>User list</h1>
+		<div class="row">
+			<div class="col-lg-12">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>User</th>
+							<th>Username</th>
+							<th></th>
+							<th></th>
+							<th></th>
+					</thead>
+					<tbody>
+			        {% for user in users %}
+			            <tr {% if not user.enabled %}class="user-disabled"{% endif %}>
+			            	<td class="col-lg-1">{{ user.id }}</td>
+			            	<td class="col-lg-4">
+			            		<a class="user-link" href="{{ path( 'netgen_test_user', { 'userID' : user.id } )  }}">{{ user.firstName }} {{ user.lastName }}
+			            		</a>
+			            	</td>
+			            	<td class="col-lg-4">{{ user.username }}</td>
+			                <td class="col-lg-1 text-right">
+			                    <a class="btn btn-info" href="{{ path( 'netgen_test_user_edit', { 'userID' : user.id } )  }}">Edit</a>
+			                </td>
+			                <td class="col-lg-1 text-right">
+			                	{% if user.enabled %}
+			                    	<a class="btn btn-warning" href="{{ path( 'netgen_test_user_disable', { 'userID' : user.id } )  }}">
+			                    		Disable
+			                    	</a>
+			                    {% else %}
+			                    	<a class="btn btn-success" href="{{ path( 'netgen_test_user_enable', { 'userID' : user.id } )  }}">
+			                    		Enable
+			                    	</a>
+			                    {% endif %}
+			                </td>
+			                <td class="col-lg-1 text-right">
+			                    <a class="btn btn-danger" href="{{ path( 'netgen_test_user_remove', { 'userID' : user.id } )  }}">Remove</a>
+			                </td>
+			            </div>
+				    {% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<a class="btn btn-primary" href="{{ path( 'netgen_test_user_add' )  }}">Add new user</a>	
+	</div>
+{% endblock %}
