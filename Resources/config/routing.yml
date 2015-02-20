@@ -1,5 +1,5 @@
 netgen_test_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: NetgenTestBundle:Default:index }
 
 netgen_test_user_list:
@@ -25,6 +25,12 @@ netgen_test_user_edit:
 netgen_test_user_disable:
     pattern:  /user/disable/{userID}
     defaults: { _controller: NetgenTestBundle:User:disable }
+    requirements:
+        userID: \d+
+
+netgen_test_user_enable:
+    pattern:  /user/enable/{userID}
+    defaults: { _controller: NetgenTestBundle:User:enable }
     requirements:
         userID: \d+
 
