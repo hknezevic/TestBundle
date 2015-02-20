@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>        
+        {% block head %}
+        {% include 'NetgenTestBundle::head.html.twig' %}
+        {% endblock %}
+
+        {% block title %}
+            <title>Netgen Test Bundle</title>
+        {% endblock %}
+    </head>
+    
+    <body>
+        <div class="header">
+            <a title="Netgen" href="/" id="logo">Netgen</a>
+
+            <ul class="nav nav-tabs">
+              <li role="presentation" class="active"><a href="{{ path('netgen_test_homepage') }}">Home</a></li>
+              <li role="presentation" class="active"><a href="{{ path('netgen_test_user_list') }}">Users</a></li>
+            </ul>
+        </div>
+
+        <div class="body">
+            <div class="container">
+                <div class="row">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+
+            {% block footer %}
+                <footer class="footer">
+                    {% include 'NetgenTestBundle::footer.html.twig' %}
+                </footer>
+            {% endblock %}
+        </div>
+    </body>
+</html>
