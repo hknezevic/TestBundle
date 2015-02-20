@@ -1,0 +1,7 @@
+{% javascripts '@NetgenTestBundle/Resources/public/js/jquery.min.js' '@NetgenTestBundle/Resources/public/js/*' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% stylesheets '@NetgenTestBundle/Resources/public/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
